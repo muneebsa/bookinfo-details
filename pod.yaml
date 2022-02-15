@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bookinfo-details
+  labels:
+    app: bookinfo-details
+spec:
+  containers:
+    - name: bookinfo-details
+      image: muneebsa/bookinfo-details:latest
+      ports:
+        - containerPort: 8080

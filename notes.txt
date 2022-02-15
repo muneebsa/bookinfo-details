@@ -1,0 +1,76 @@
+
+Build Docker Image
+===================
+$ docker build -t bookinfo-details .
+
+Run Docker Container
+===================
+$ docker run -p 8080:8080 bookinfo-details
+
+Test Application
+=================
+==> http://localhost:8080/bookinfo-details/1
+
+Create Image Repository
+========================
+==> https://hub.docker.com/  (Image Registry)
+==> Create Repository
+==> Repo name: muneebsa/bookinfo-details
+
+Re-tag Docker Image
+=====================
+docker tag bookinfo-details muneebsa/bookinfo-details
+
+Login to Image Registry
+======================
+$ docker login
+
+Push Image
+==========
+docker push muneebsa/bookinfo-details
+
+Pull Image
+===========
+==> https://labs.play-with-docker.com/
+$ docker pull muneebsa/bookinfo-details
+
+Run Container
+=============
+$ docker run -p 8080:8080 muneebsa/bookinfo-details
+
+Test Application
+================
+==> http://???????.direct.labs.play-with-docker.com/bookinfo-details/1
+
+Create Kubernetes Pod
+=====================
+$ kubectl apply -f pod.yaml
+
+Port Forward (from Host to Kubernetes Pod)
+==============================================
+kubectl port-forward pod/bookinfo-details  8080:8080
+
+Test Application
+=================
+==> http://localhost:8080/bookinfo-details/1
+
+Create Kubernetes Service
+=========================
+kubectl apply -f service.yaml
+
+Port Forward (from Host to Kubernetes Server)
+==============================================
+kubectl port-forward svc/bookinfo-details  8080:8080
+
+Test Application
+=================
+==> http://localhost:8080/bookinfo-details/1
+
+
+#############
+REF
+#############
+https://spring.io/guides/gs/spring-boot-kubernetes/
+https://kubebyexample.com/
+https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-deployment-tutorial-example-yaml.html
+https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html

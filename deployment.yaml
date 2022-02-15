@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bookinfo-details
+  name: bookinfo-details
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bookinfo-details
+  template:
+    metadata:
+      labels:
+        app: bookinfo-details
+    spec:
+      containers:
+      - image: muneebsa/bookinfo-details
+        name: bookinfo-details
